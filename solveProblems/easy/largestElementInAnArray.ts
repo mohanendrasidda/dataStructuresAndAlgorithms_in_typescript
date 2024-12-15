@@ -71,3 +71,39 @@ for(let i=0;i<array.length-1;i++){
   else console.log(false)
 }
 checkArraySorted([1,2,3,4,5,6,7,8])
+
+// function removeDuplicates<T>(array:T[]):T[]{
+//     let set:Set<T>=new Set<T>(array)
+//     console.log(Array.from(set))
+// }
+
+// const returned= removeDuplicates([1,2,3,53,53,60,60,86])
+
+function leftRotate(array:number[]){
+const hold:number=array[0]
+array.splice(0,1)
+array.push(hold)
+console.log(array)
+}
+
+leftRotate([1,2,3,4,5,6])
+
+
+function leftRotateDPlaces(array:number[], times:number, direction:string){
+    
+    let leftHold:number[]=array.slice(0,times)
+    let rightHold:number[]=array.slice(array.length-times,array.length)
+    console.log("rightHold",rightHold)
+      console.log("leftHold:",leftHold)
+    direction=="right"? rightHold=array.splice(array.length-times,times):leftHold=array.splice(0,times)
+  
+       if(direction=="right"){
+        console.log(rightHold.concat(array))
+      }
+     else
+     console.log(array.concat(leftHold))
+      
+      
+}
+
+leftRotateDPlaces([1,2,3,4,5,6],2,"left")
